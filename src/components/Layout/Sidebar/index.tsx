@@ -1,5 +1,4 @@
 import UserWarnings from '@app/components/Layout/UserWarnings';
-import VersionStatus from '@app/components/Layout/VersionStatus';
 import useClickOutside from '@app/hooks/useClickOutside';
 import { Permission, useUser } from '@app/hooks/useUser';
 import { Transition } from '@headlessui/react';
@@ -9,9 +8,7 @@ import {
   ExclamationTriangleIcon,
   FilmIcon,
   SparklesIcon,
-  TvIcon,
   UsersIcon,
-  XMarkIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -21,7 +18,6 @@ import { defineMessages, useIntl } from 'react-intl';
 export const menuMessages = defineMessages({
   dashboard: 'Discover',
   browsemovies: 'Movies',
-  browsetv: 'Series',
   requests: 'Requests',
   issues: 'Issues',
   users: 'Users',
@@ -56,12 +52,6 @@ const SidebarLinks: SidebarLinkProps[] = [
     messagesKey: 'browsemovies',
     svgIcon: <FilmIcon className="mr-3 h-6 w-6" />,
     activeRegExp: /^\/discover\/movies$/,
-  },
-  {
-    href: '/discover/tv',
-    messagesKey: 'browsetv',
-    svgIcon: <TvIcon className="mr-3 h-6 w-6" />,
-    activeRegExp: /^\/discover\/tv$/,
   },
   {
     href: '/requests',
@@ -140,9 +130,7 @@ const Sidebar = ({ open, setClosed }: SidebarProps) => {
                       className="flex h-12 w-12 items-center justify-center rounded-full focus:bg-gray-600 focus:outline-none"
                       aria-label="Close sidebar"
                       onClick={() => setClosed()}
-                    >
-                      <XMarkIcon className="h-6 w-6 text-white" />
-                    </button>
+                    ></button>
                   </div>
                   <div
                     ref={navRef}
@@ -201,12 +189,6 @@ const Sidebar = ({ open, setClosed }: SidebarProps) => {
                     <div className="px-2">
                       <UserWarnings onClick={() => setClosed()} />
                     </div>
-
-                    {hasPermission(Permission.ADMIN) && (
-                      <div className="px-2">
-                        <VersionStatus onClick={() => setClosed()} />
-                      </div>
-                    )}
                   </div>
                 </div>
                 <div className="w-14 flex-shrink-0">
@@ -267,11 +249,6 @@ const Sidebar = ({ open, setClosed }: SidebarProps) => {
               <div className="px-2">
                 <UserWarnings />
               </div>
-              {hasPermission(Permission.ADMIN) && (
-                <div className="px-2">
-                  <VersionStatus />
-                </div>
-              )}
             </div>
           </div>
         </div>

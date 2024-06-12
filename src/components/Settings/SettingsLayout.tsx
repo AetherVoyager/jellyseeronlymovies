@@ -17,7 +17,6 @@ const messages = defineMessages({
   menuNotifications: 'Notifications',
   menuLogs: 'Logs',
   menuJobs: 'Jobs & Cache',
-  menuAbout: 'About',
 });
 
 type SettingsLayoutProps = {
@@ -69,11 +68,6 @@ const SettingsLayout = ({ children }: SettingsLayoutProps) => {
       text: intl.formatMessage(messages.menuJobs),
       route: '/settings/jobs',
       regex: /^\/settings\/jobs/,
-    },
-    {
-      text: intl.formatMessage(messages.menuAbout),
-      route: '/settings/about',
-      regex: /^\/settings\/about/,
     },
   ];
 

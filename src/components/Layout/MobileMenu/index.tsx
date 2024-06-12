@@ -9,7 +9,6 @@ import {
   ExclamationTriangleIcon,
   FilmIcon,
   SparklesIcon,
-  TvIcon,
   UsersIcon,
 } from '@heroicons/react/24/outline';
 import {
@@ -18,7 +17,6 @@ import {
   ExclamationTriangleIcon as FilledExclamationTriangleIcon,
   FilmIcon as FilledFilmIcon,
   SparklesIcon as FilledSparklesIcon,
-  TvIcon as FilledTvIcon,
   UsersIcon as FilledUsersIcon,
   XMarkIcon,
 } from '@heroicons/react/24/solid';
@@ -69,13 +67,6 @@ const MobileMenu = () => {
       svgIcon: <FilmIcon className="h-6 w-6" />,
       svgIconSelected: <FilledFilmIcon className="h-6 w-6" />,
       activeRegExp: /^\/discover\/movies$/,
-    },
-    {
-      href: '/discover/tv',
-      content: intl.formatMessage(menuMessages.browsetv),
-      svgIcon: <TvIcon className="h-6 w-6" />,
-      svgIconSelected: <FilledTvIcon className="h-6 w-6" />,
-      activeRegExp: /^\/discover\/tv$/,
     },
     {
       href: '/requests',

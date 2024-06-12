@@ -21,8 +21,5 @@ module.exports = {
 
     return config;
   },
-  experimental: {
-    scrollRestoration: true,
-    largePageDataBytes: 256000,
-  },
+  experimental: {},
 };
